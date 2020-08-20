@@ -1,0 +1,230 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    align-items: center;
+  } 
+
+}
+
+
+.image-box__image {
+  width: 320px;
+  border-radius: 10px 0 0 10px;
+  object-fit: cover;
+
+   @include respond(tab-port) {
+    width: 380px;
+    border-radius: 10px 10px 0 0;
+    height: 40%;
+  } 
+
+  
+}
+
+.content {
+  background-color: #fff;
+  height: auto;
+  flex: 0 0 25%;
+  padding: 2rem;
+  border-radius: 0 10px 10px 0;
+
+  @include respond(tab-port) {
+    width: 380px;
+    padding: 0 0 2rem 0;
+    border-radius: 0 0 10px 10px;
+
+
+
+  } 
+
+}
+
+.content__text {
+  padding: 3rem 2rem;    
+  &-heading {
+    font-weight: 700;
+    color: $dark-grayish-blue;
+    font-size: 2.3rem;
+    margin-bottom: 2rem;
+  }
+
+  &-para {
+    color: $desaturated-dark-blue;
+    line-height: 1.7;
+  }
+}
+
+.content__author {
+  //   margin-left: 1.5rem;
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+
+  &-box {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  &-box-image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+  }
+
+  &-box-text {
+    margin-left: 1rem;
+  }
+
+  &-box-name {
+    font-size: 1.3rem;
+    color: $dark-grayish-blue;
+  }
+
+  &-box-date {
+    font-size: 1.2rem;
+    color: $grayish-blue;
+    margin-top: 0.5rem;
+  }
+
+  
+}
+
+.share {
+  position: relative;
+}
+
+.share__checkbox {
+  display: none;
+}
+
+.share .share__checkbox:checked + .share__btn {
+  background-color: #6d7f97;
+}
+
+.share .share__checkbox:checked + .share__btn .share__icon {
+  background-color: #fff;
+}
+
+.share__icon {
+  display: inline-block;
+  background-color: #6d7f97;
+  -webkit-mask-image: url('../../img/icon-share.svg');
+  mask-image: url('../../img/icon-share.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  width: 2rem;
+  height: 1.5rem;
+}
+
+.share__link i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.share__btn {
+  position: relative;
+  cursor: pointer;
+  background-color: #ecf2f8;
+  padding: 1rem 1.1rem;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  z-index: 10;
+
+   @include respond(tab-port) {
+    // top: 85.7%;
+    // right: 5rem;
+    // z-index: 2000;
+    // padding: 1.3rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    
+  } 
+}
+
+.share .share__checkbox:checked ~ .share__bg {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(-1rem);
+  transform: translateY(-1rem);
+//   margin-left: 1.1rem;
+
+}
+
+.share__bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: absolute;
+  top: -7rem;
+  left: -7.4rem;
+  background-color: #48556a;
+  padding: 0.8rem 2.5rem;
+  border-radius: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+
+  @include respond(tab-port) {
+    left: -332.5px;
+    top: 6%;
+    width: 1123%;
+    border-radius: 1rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    padding: 2.8rem 0;
+    padding-left: 2.5rem;
+    display: flex;
+    align-items: center;    
+  } 
+}
+
+.share__bg::after {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #48556a;
+  top: 4rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+
+  @include respond(tab-port) {
+    display: none;
+  } 
+}
+
+.share__bg > *:not(:last-child) {
+  margin-right: 1.2rem;
+}
+
+.share__bg .text {
+  font-size: 1.4rem;
+  color: #9eafc2;
+  text-transform: uppercase;
+}
